@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CP C++ Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.41.0/min/vs/loader.min.js"></script>
+</head>
+
+<body class="bg-gray-900 text-gray-100 flex flex-col h-screen font-sans">
+
+    <!-- Header -->
+    <header class="bg-gray-800 text-white p-3 flex justify-between items-center shadow-md">
+        <h1 class="text-xl font-bold tracking-wide">CP C++ Editor</h1>
+        <button id="runBtn"
+            class="bg-blue-600 hover:bg-blue-500 px-5 py-2 rounded-lg shadow hover:shadow-lg transition-all duration-200">Run
+            Code</button>
+    </header>
+
+    <!-- Main Container -->
+    <div class="flex flex-1 overflow-hidden gap-3 p-3">
+
+        <!-- Editor Column (Left) -->
+        <div class="flex-[70%] rounded-lg overflow-hidden shadow-lg border border-gray-700" id="editor"></div>
+
+        <!-- Input + Output Column (Right) -->
+        <div class="flex flex-col flex-[30%] gap-3">
+
+            <!-- Input with label -->
+            <div class="flex flex-col flex-[30%] gap-3 h-full">
+
+                <!-- Input with label -->
+                <div class="flex flex-col gap-2 flex-1">
+                    <label class="font-semibold mb-1">Input</label>
+                    <textarea id="input"
+                        class="flex-1 bg-gray-800 p-3 rounded-lg border border-gray-700 text-white font-mono resize-none shadow-inner focus:outline-none transition-all duration-150"></textarea>
+                </div>
+
+                <!-- Output with label -->
+                <div class="flex flex-col gap-2 flex-1">
+                    <label class="font-semibold mb-1">Output</label>
+                    <pre id="output"
+                        class="flex-1 bg-gray-800 p-3 rounded-lg border border-gray-700 text-white font-mono shadow-inner overflow-auto"></pre>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mobile-warning">
+        CP Editor works only on Desktop. Please open on a larger screen or in desktop mode.
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
