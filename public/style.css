@@ -40,6 +40,14 @@ textarea::placeholder {
   opacity: 1;
 }
 
+.run-btn {
+  background-color: #1f4375;
+}
+
+.run-btn:hover {
+  background-color: #374455;
+}
+
 .mobile-warning {
   display: none;
 }

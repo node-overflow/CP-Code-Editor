@@ -2,8 +2,7 @@ require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-e
 
 require(['vs/editor/editor.main'], function () {
     window.editor = monaco.editor.create(document.getElementById('editor'), {
-        value: `#include "bits.h"
-\nusing namespace std;\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n    int n;\n    cin >> n;\n    cout << n << "\\n";\n\n    return 0;\n}`,
+        value: `#include "bits.h"\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n    int n;\n    cin >> n;\n    cout << n << "\\n";\n\n    return 0;\n}`,
         language: 'cpp',
         theme: 'vs-dark',
         fontSize: 16,
