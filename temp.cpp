@@ -1,12 +1,11 @@
 #include "bits.h"
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    fio;
 
     int n = 5;
     cin >> n;
-    cout << n << "\n";
+    cout << ng << "\n";
 
     return 0;
 }

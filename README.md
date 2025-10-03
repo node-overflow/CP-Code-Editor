@@ -1,6 +1,6 @@
 # CP C++ Editor
 
-A lightweight C++ editor for competitive programming. Write, ru, and test your C++ code quickly locally on your system.
+A lightweight C++ editor for competitive programming. Write, run and test your C++ code quickly on browser or locally on your system.
 
 ## Features
 
