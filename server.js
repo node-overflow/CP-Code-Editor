@@ -16,14 +16,20 @@ app.post('/run', (req, res) => {
     const filePath = path.join(__dirname, 'temp.cpp');
     fs.writeFileSync(filePath, code);
 
-    // compile
     exec(`g++ "${filePath}" -o temp.exe`, (err, stdout, stderr) => {
         if (err) return res.json({ error: stderr });
 
         const exeFile = process.platform === 'win32' ? 'temp.exe' : './temp.exe';
+
+        const start = Date.now();
+
         const runProcess = exec(exeFile, (err, stdout, stderr) => {
-            if (err) return res.json({ error: stderr });
-            res.json({ output: stdout });
+            const end = Date.now();
+            const runtime = ((end - start) / 1000).toFixed(3);
+
+            if (err) return res.json({ error: stderr, runtime });
+
+            res.json({ output: stdout, runtime });
         });
 
         if (input) runProcess.stdin.write(input);

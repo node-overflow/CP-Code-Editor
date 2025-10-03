@@ -1,18 +1,4 @@
-#ifndef BITS_H
-#define BITS_H
-
-#include <iostream>
-#include <vector>
-#include <map>
-#include <set>
-#include <queue>
-#include <stack>
-#include <algorithm>
-#include <cmath>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-
+#include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
 #define fio ios::sync_with_stdio(false); cin.tie(nullptr);
@@ -22,4 +8,12 @@ using ll = long long;
 #define pb push_back
 #define all(x) x.begin(), x.end()
 
-#endif
+int main() {
+    fio;
+    
+    int tt = 1;
+    cin >> tt;
+    while (tt--) {
+        int n; cin >> n;
+    }
+}

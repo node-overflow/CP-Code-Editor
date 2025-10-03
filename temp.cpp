@@ -4,7 +4,7 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n;
+    int n = 5;
     cin >> n;
     cout << n << "\n";
 

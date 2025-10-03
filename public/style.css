@@ -40,12 +40,12 @@ textarea::placeholder {
   opacity: 1;
 }
 
-.run-btn {
-  background-color: #1f4375;
+.header-btn {
+  background-color: #374455;
 }
 
-.run-btn:hover {
-  background-color: #374455;
+.header-btn:hover {
+  background-color: #2d3948;
 }
 
 .mobile-warning {

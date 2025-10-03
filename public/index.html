@@ -12,34 +12,56 @@
 
 <body class="bg-gray-900 text-gray-100 flex flex-col h-screen font-sans">
 
-    <!-- Header -->
-    <header class="bg-gray-800 text-white p-3 flex justify-between items-center shadow-md">
-        <h1 class="text-xl font-bold tracking-wide">CP C++ Editor</h1>
-        <button id="runBtn"
-            class="px-5 py-2 rounded-lg run-btn">Run
-            Code</button>
+    <header class="bg-gray-800 text-white p-3 flex flex-wrap justify-between items-center shadow-md gap-2">
+        <h1 class="text-xl font-bold tracking-wide">CP C++ Editor <code class="text-sm font-light">Made by Piyush</code>
+        </h1>
+
+        <div class="flex flex-wrap gap-10 items-center">
+
+            <div>
+                <label for="themeSelector">Theme: </label>
+                <select id="themeSelector" class="px-3 py-1 rounded-lg bg-gray-700 text-white border border-gray-600">
+                    <option value="vs-dark">VS Dark</option>
+                    <option value="vs">VS Light</option>
+                    <option value="hc-black">High Contrast</option>
+                    <option value="monokai">Monokai</option>
+                    <option value="solarized-dark">Solarized Dark</option>
+                    <option value="solarized-light">Solarized Light</option>
+                    <option value="dracula">Dracula</option>
+                    <option value="cobalt">Cobalt</option>
+                    <option value="quiet-light">Quiet Light</option>
+                    <option value="twilight">Twilight</option>
+                </select>
+            </div>
+
+            <label class="flex items-center gap-1">
+                Font Size:
+                <input id="fontSizeSelector" type="number" min="10" max="36" value="16"
+                    class="w-16 px-2 py-1 rounded-lg bg-gray-700 text-white border border-gray-600">
+            </label>
+
+            <button id="runBtn" class="px-5 py-2 rounded-lg header-btn">Run
+                Code</button>
+
+        </div>
+
     </header>
 
     <!-- Main Container -->
     <div class="flex flex-1 overflow-hidden gap-3 p-3">
 
-        <!-- Editor Column (Left) -->
         <div class="flex-[70%] rounded-lg overflow-hidden shadow-lg border border-gray-700" id="editor"></div>
 
-        <!-- Input + Output Column (Right) -->
         <div class="flex flex-col flex-[30%] gap-3">
 
-            <!-- Input with label -->
             <div class="flex flex-col flex-[30%] gap-3 h-full">
 
-                <!-- Input with label -->
                 <div class="flex flex-col gap-2 flex-1">
                     <label class="font-semibold mb-1">Input</label>
                     <textarea id="input"
                         class="flex-1 bg-gray-800 p-3 rounded-lg border border-gray-700 text-white font-mono resize-none shadow-inner focus:outline-none transition-all duration-150"></textarea>
                 </div>
 
-                <!-- Output with label -->
                 <div class="flex flex-col gap-2 flex-1">
                     <label class="font-semibold mb-1">Output</label>
                     <pre id="output"
