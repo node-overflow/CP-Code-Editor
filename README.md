@@ -8,7 +8,7 @@ A lightweight C++ editor for competitive programming. Write, ru, and test your C
 - Font size adjustment
 - Word wrap and minimap
 - Run code with a click or Ctrl + B (build code like sublime)
-- All header c++ files already pre-compiled (so it saves time)
+- All header C++ files already pre-compiled to save compilation time
 
 ## Tech Stack
 
@@ -29,7 +29,8 @@ A lightweight C++ editor for competitive programming. Write, ru, and test your C
    ```bash
    npm install
    ```
-3. ```bash
+3. Run the server
+   ```bash
    node server.js
    ```
 
