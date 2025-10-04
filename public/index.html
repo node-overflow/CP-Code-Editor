@@ -8,18 +8,45 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.41.0/min/vs/loader.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-pap6Y3..." crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
 <body class="bg-gray-900 text-gray-100 flex flex-col h-screen font-sans">
 
     <header class="bg-gray-800 text-white p-3 flex flex-wrap justify-between items-center shadow-md gap-2">
-        <h1 class="text-xl font-bold tracking-wide">CP C++ Editor <code class="text-sm font-light">Made by Piyush</code>
-        </h1>
+        <h1 class="text-xl font-bold tracking-wide">C++ Editor</h1>
 
         <div class="flex flex-wrap gap-10 items-center">
 
+            <div class="flex items-center gap-2">
+                <i class="fa-regular fa-clock" style="opacity: 50%;" title="Stopwatch"></i>
+                <span id="timerDisplay">00:00:00</span>
+                <button id="startTimerBtn" class="px-3 py-1 rounded-lg header-btn">Start</button>
+                <button id="pauseTimerBtn" class="px-3 py-1 rounded-lg header-btn">Pause</button>
+                <button id="resetTimerBtn" class="px-3 py-1 rounded-lg header-btn">Reset</button>
+            </div>
+
+            <a href="https://github.com/node-overflow/CP-Code-Editor" target="_blank"
+                class="flex items-center gap-2 icon_">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub Repo</span>
+            </a>
+
+            <a href="./template.html" target="_blank" class="flex items-center gap-2 icon_">
+                <i class="fa-solid fa-file-code"></i>
+                <span>Template Used</span>
+            </a>
+
+            <button id="runBtn" class="px-3 py-2 rounded-lg flex items-center justify-center header-btn"
+                title="Run Code (Ctrl + B)">
+                <i class="fa-solid fa-play"></i>
+            </button>
+
             <div>
-                <label for="themeSelector">Theme: </label>
+                <label for="themeSelector" title="Theme"><i class="fa-solid fa-palette"
+                        style="opacity: 50%; margin-right: 0.2rem;"></i>
+                </label>
                 <select id="themeSelector" class="px-3 py-1 rounded-lg bg-gray-700 text-white border border-gray-600">
                     <option value="vs-dark">VS Dark</option>
                     <option value="vs">VS Light</option>
@@ -31,17 +58,24 @@
                     <option value="cobalt">Cobalt</option>
                     <option value="quiet-light">Quiet Light</option>
                     <option value="twilight">Twilight</option>
+                    <option value="one-dark-pro">One Dark Pro</option>
+                    <option value="material-dark">Material Dark</option>
+                    <option value="night-owl" selected>Night Owl</option>
+                    <option value="palenight">Palenight</option>
+                    <option value="vscode-dark-plus">VSCode Dark+</option>
+                    <option value="ayu-dark">Ayu Dark</option>
+                    <option value="ayu-mirage">Ayu Mirage</option>
+                    <option value="gruvbox-dark">Gruvbox Dark</option>
+                    <option value="nord">Nord</option>
+                    <option value="cobalt2">Cobalt2</option>
                 </select>
             </div>
 
             <label class="flex items-center gap-1">
-                Font Size:
-                <input id="fontSizeSelector" type="number" min="10" max="36" value="16"
+                <i class="fa-solid fa-text-height" style="opacity: 50%; margin-right: 0.2rem;" title="Font Size"></i>
+                <input id="fontSizeSelector" type="number" min="10" max="36" value="20"
                     class="w-16 px-2 py-1 rounded-lg bg-gray-700 text-white border border-gray-600">
             </label>
-
-            <button id="runBtn" class="px-5 py-2 rounded-lg header-btn">Run
-                Code</button>
 
         </div>
 

@@ -2,10 +2,11 @@
 
 int main() {
     fio;
-
-    int n = 5;
-    cin >> n;
-    cout << ng << "\n";
-
-    return 0;
+    
+    int tt = 1;
+    cin >> tt;
+    while (tt--) {
+        int n; cin >> n;
+        cout << n << endl;
+    }
 }

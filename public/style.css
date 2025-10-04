@@ -3,6 +3,11 @@
   width: 100%;
 }
 
+textarea::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
 textarea:focus,
 pre:focus {
   outline: none;
@@ -35,17 +40,29 @@ pre:hover {
   transition: box-shadow 0.3s ease;
 }
 
-textarea::placeholder {
-  color: #9ca3af;
-  opacity: 1;
-}
-
 .header-btn {
   background-color: #374455;
 }
 
 .header-btn:hover {
   background-color: #2d3948;
+}
+
+.icon_ {
+  color: #e0dfdf8c;
+  text-decoration: none;
+}
+
+.icon_:hover {
+  color: #e0dfdfd3;
+}
+
+details summary {
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
 }
 
 .mobile-warning {
