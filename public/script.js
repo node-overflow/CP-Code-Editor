@@ -33,11 +33,15 @@ int main() {
     }
 }`,
         language: 'cpp',
+        fontFamily: 'Fira Code, monospace',
         theme: 'night-owl',
         fontSize: 20,
         automaticLayout: true,
         minimap: { enabled: true },
         wordWrap: 'on',
+        multiCursorModifier: 'ctrlCmd',
+        multiCursorMergeOverlapping: true,
+        mouseWheelZoom: true,
     });
 
     const themeSelector = document.getElementById('themeSelector');
@@ -47,45 +51,66 @@ int main() {
 
     let timerInterval = null;
     const timerDisplay = document.getElementById('timerDisplay');
-    const pauseBtn = document.getElementById('pauseTimerBtn');
+    const toggleBtn = document.getElementById('toggleTimerBtn');
+    const resetBtn = document.getElementById('resetTimerBtn');
     let totalSeconds = 0;
+    let isRunning = false;
     let isPaused = false;
 
-    const startTimer = (seconds = 0) => {
-        clearInterval(timerInterval);
-        totalSeconds = seconds;
+    timerDisplay.style.color = 'white';
+
+    const updateDisplay = () => {
+        const hrs = Math.floor(totalSeconds / 3600);
+        const mins = Math.floor((totalSeconds % 3600) / 60);
+        const secs = totalSeconds % 60;
+        timerDisplay.textContent = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    };
+
+    const startTimer = () => {
         timerInterval = setInterval(() => {
             totalSeconds++;
-            const hrs = Math.floor(totalSeconds / 3600);
-            const mins = Math.floor((totalSeconds % 3600) / 60);
-            const secs = totalSeconds % 60;
-            timerDisplay.textContent = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            updateDisplay();
         }, 1000);
+        isRunning = true;
         isPaused = false;
-        pauseBtn.textContent = "Pause";
+        toggleBtn.textContent = "Pause";
+        timerDisplay.style.color = 'lightgreen';
     };
 
     const pauseTimer = () => {
-        if (!isPaused) {
-            clearInterval(timerInterval);
-            isPaused = true;
-            pauseBtn.textContent = "Resume";
-        } else {
-            startTimer(totalSeconds);
-        }
+        clearInterval(timerInterval);
+        isPaused = true;
+        toggleBtn.textContent = "Resume";
+        timerDisplay.style.color = 'orange';
+    };
+
+    const resumeTimer = () => {
+        startTimer();
+        toggleBtn.textContent = "Pause";
+        timerDisplay.style.color = 'lightgreen';
     };
 
     const resetTimer = () => {
         clearInterval(timerInterval);
         totalSeconds = 0;
-        timerDisplay.textContent = `00:00:00`;
+        updateDisplay();
+        isRunning = false;
         isPaused = false;
-        pauseBtn.textContent = "Pause";
+        toggleBtn.textContent = "Start";
+        timerDisplay.style.color = 'white';
     };
 
-    document.getElementById('startTimerBtn').addEventListener('click', () => startTimer());
-    pauseBtn.addEventListener('click', pauseTimer);
-    document.getElementById('resetTimerBtn').addEventListener('click', resetTimer);
+    toggleBtn.addEventListener('click', () => {
+        if (!isRunning) {
+            startTimer();
+        } else if (isRunning && !isPaused) {
+            pauseTimer();
+        } else if (isPaused) {
+            resumeTimer();
+        }
+    });
+
+    resetBtn.addEventListener('click', resetTimer);
 });
 
 const runCode = async () => {

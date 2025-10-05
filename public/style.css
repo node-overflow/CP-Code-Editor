@@ -40,6 +40,17 @@ pre:hover {
   transition: box-shadow 0.3s ease;
 }
 
+header {
+  user-select: none;
+}
+
+.h1-text {
+  background: linear-gradient(90deg, #c3d2e5, #97a3b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
 .header-btn {
   background-color: #374455;
 }
@@ -55,6 +66,10 @@ pre:hover {
 
 .icon_:hover {
   color: #e0dfdfd3;
+}
+
+#themeSelector option {
+  color: rgba(255, 255, 255, 0.868);
 }
 
 details summary {

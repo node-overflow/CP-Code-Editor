@@ -1,8 +1,8 @@
-# CP C++ Editor v1.2.0
+# CompileX v1.2.1
 
 A lightweight C++ editor made for competitive programmers. Write, run and test your C++ code quickly in your browser or locally on your computer.
 
-<img src="https://i.postimg.cc/1XwcFQPR/cp-code-editor.png" width="600">
+<img src="https://i.postimg.cc/fTj6Qch8/cp-code-editor.png" width="700">
 
 ## Features
 
@@ -13,7 +13,12 @@ A lightweight C++ editor made for competitive programmers. Write, run and test y
 - All C++ header files precompiled to save compilation time  
 - Stopwatch for coding sessions
 - Input and output console integrated alongside the editor  
-- Supports multiple popular themes like Monokai, Dracula, Night Owl, and more  
+- Supports multiple popular themes like Monokai, Dracula, Night Owl, and more 
+
+## What's New
+
+- Fixed bugs and improved stability
+- Performance enhancements
 
 
 ## Tech Stack

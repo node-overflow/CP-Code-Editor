@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CP C++ Editor</title>
+    <title>CompileX</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.41.0/min/vs/loader.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-pap6Y3..." crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -14,40 +15,43 @@
 
 <body class="bg-gray-900 text-gray-100 flex flex-col h-screen font-sans">
 
+    <!-- header -->
     <header class="bg-gray-800 text-white p-3 flex flex-wrap justify-between items-center shadow-md gap-2">
-        <h1 class="text-xl font-bold tracking-wide">C++ Editor</h1>
+        <h1 class="text-xl tracking-wide h1-text">CompileX</h1>
 
         <div class="flex flex-wrap gap-10 items-center">
 
+            <!-- timer controls -->
             <div class="flex items-center gap-2">
-                <i class="fa-regular fa-clock" style="opacity: 50%;" title="Stopwatch"></i>
-                <span id="timerDisplay">00:00:00</span>
-                <button id="startTimerBtn" class="px-3 py-1 rounded-lg header-btn">Start</button>
-                <button id="pauseTimerBtn" class="px-3 py-1 rounded-lg header-btn">Pause</button>
-                <button id="resetTimerBtn" class="px-3 py-1 rounded-lg header-btn">Reset</button>
+                <i class="fa-regular fa-clock opacity-50" title="Stopwatch"></i>
+                <span id="timerDisplay" style="opacity: 70%;">00:00:00</span>
+                <button id="toggleTimerBtn" class="px-3 py-1 rounded-lg header-btn opacity-80">Start</button>
+                <button id="resetTimerBtn" class="px-3 py-1 rounded-lg header-btn opacity-80">Reset</button>
             </div>
 
+            <!-- links -->
             <a href="https://github.com/node-overflow/CP-Code-Editor" target="_blank"
                 class="flex items-center gap-2 icon_">
-                <i class="fa-brands fa-github"></i>
-                <span>GitHub Repo</span>
+                <i class="fa-brands fa-github"></i><span>Repo</span>
             </a>
 
-            <a href="./template.html" target="_blank" class="flex items-center gap-2 icon_">
-                <i class="fa-solid fa-file-code"></i>
-                <span>Template Used</span>
+            <a href="./user-guide.html" target="_blank" class="flex items-center gap-2 icon_">
+                <i class="fa-solid fa-file-code"></i><span>Guide</span>
             </a>
 
-            <button id="runBtn" class="px-3 py-2 rounded-lg flex items-center justify-center header-btn"
+            <!-- run button -->
+            <button id="runBtn" class="px-3 py-2 rounded-lg flex items-center justify-center header-btn opacity-80"
                 title="Run Code (Ctrl + B)">
                 <i class="fa-solid fa-play"></i>
             </button>
 
+            <!-- theme selector -->
             <div>
-                <label for="themeSelector" title="Theme"><i class="fa-solid fa-palette"
-                        style="opacity: 50%; margin-right: 0.2rem;"></i>
+                <label for="themeSelector" title="Theme">
+                    <i class="fa-solid fa-palette opacity-50 mr-1"></i>
                 </label>
-                <select id="themeSelector" class="px-3 py-1 rounded-lg bg-gray-700 text-white border border-gray-600">
+                <select id="themeSelector"
+                    class="px-3 py-1 rounded-lg bg-gray-700 text-white border border-gray-600 opacity-80">
                     <option value="vs-dark">VS Dark</option>
                     <option value="vs">VS Light</option>
                     <option value="hc-black">High Contrast</option>
@@ -71,36 +75,39 @@
                 </select>
             </div>
 
+            <!-- font size -->
             <label class="flex items-center gap-1">
-                <i class="fa-solid fa-text-height" style="opacity: 50%; margin-right: 0.2rem;" title="Font Size"></i>
+                <i class="fa-solid fa-text-height opacity-50 mr-1" title="Font Size"></i>
                 <input id="fontSizeSelector" type="number" min="10" max="36" value="20"
-                    class="w-16 px-2 py-1 rounded-lg bg-gray-700 text-white border border-gray-600">
+                    class="w-16 px-2 py-1 rounded-lg bg-gray-700 text-white border border-gray-600 opacity-80">
             </label>
 
         </div>
-
     </header>
 
-    <!-- Main Container -->
+    <!-- editor + input/output div -->
     <div class="flex flex-1 overflow-hidden gap-3 p-3">
 
+        <!-- Editor div -->
         <div class="flex-[70%] rounded-lg overflow-hidden shadow-lg border border-gray-700" id="editor"></div>
 
+        <!-- input + output div -->
         <div class="flex flex-col flex-[30%] gap-3">
 
             <div class="flex flex-col flex-[30%] gap-3 h-full">
 
+                <!-- input div -->
                 <div class="flex flex-col gap-2 flex-1">
                     <label class="font-semibold mb-1">Input</label>
                     <textarea id="input"
                         class="flex-1 bg-gray-800 p-3 rounded-lg border border-gray-700 text-white font-mono resize-none shadow-inner focus:outline-none transition-all duration-150"></textarea>
                 </div>
 
+                <!-- output div -->
                 <div class="flex flex-col gap-2 flex-1">
                     <label class="font-semibold mb-1">Output</label>
                     <pre id="output"
-                        class="flex-1 bg-gray-800 p-3 rounded-lg border border-gray-700 text-white font-mono shadow-inner overflow-auto whitespace-pre-wrap break-words">
-                    </pre>
+                        class="flex-1 bg-gray-800 p-3 rounded-lg border border-gray-700 text-white font-mono shadow-inner overflow-auto whitespace-pre-wrap break-words"></pre>
                 </div>
 
             </div>
@@ -109,11 +116,13 @@
 
     </div>
 
+    <!-- mobile warning -->
     <div class="mobile-warning">
         CP Editor works only on Desktop. Please open on a larger screen or in desktop mode.
     </div>
 
     <script src="script.js"></script>
+
 </body>
 
 </html>

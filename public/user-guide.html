@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>User Guide</title><script src="https://cdn.tailwindcss.com"></script></head><body class="bg-gray-50 text-gray-900 p-6 font-sans"><h1 class="text-2xl font-bold mb-4">Template for <code class="font-light">#include &quot;bits.h&quot;</code></h1><div class="relative bg-gray-100 rounded border border-gray-300 overflow-x-auto mb-6"><button id="copyBtn" class="absolute top-2 right-2 bg-gray-200 hover:bg-gray-300 text-gray-800 px-2 py-1 rounded text-sm">Copy</button><pre class="p-4"><code id="codeBlock">// #include &lt;bits/stdc++.h&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;set&gt;
+#include &lt;queue&gt;
+#include &lt;stack&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;string&gt;
+#include &lt;unordered_map&gt;
+#include &lt;unordered_set&gt;
+
+using namespace std;
+using ll = long long;
+#define fio ios::sync_with_stdio(false); cin.tie(nullptr);
+#define endl "\n"
+#define cont(x) {cout &lt;&lt; x &lt;&lt; "\n"; continue;}
+#define ret(x) {cout &lt;&lt; x &lt;&lt; "\n"; return 0;}
+#define pb push_back
+#define all(x) x.begin(), x.end()
+</code></pre></div><div class="bg-gray-100 p-4 rounded border border-gray-300"><h2 class="font-semibold mb-2">Usage & Shortcuts</h2><ul class="list-disc pl-5 text-gray-800"><li><strong>Run code:</strong> Click "Run" button or <code>Ctrl + B</code></li><li><strong>Copy template:</strong> Click "Copy" button</li><li><strong>Toggle timer:</strong> Start / Pause / Resume using timer button</li><li><strong>Reset timer:</strong> Reset button sets timer to 00:00:00</li><li><strong>Editor shortcuts:</strong> <code>Ctrl/Cmd + Left Click</code> for multi-cursor, <code>Ctrl + D</code> select all occurrences</li><li><strong>Font size:</strong> Change from dropdown</li><li><strong>Themes:</strong> Select from dropdown to change editor theme</li><li><strong>Word wrap:</strong> On by default, wraps long lines</li><li><strong>Minimap:</strong> Visible for quick navigation</li></ul></div><script>const copyBtn=document.getElementById('copyBtn');const codeBlock=document.getElementById('codeBlock');copyBtn.addEventListener('click',()=>{navigator.clipboard.writeText(codeBlock.textContent).then(()=>{copyBtn.textContent="Copied!";setTimeout(()=>copyBtn.textContent="Copy",1500);});});</script></body></html>

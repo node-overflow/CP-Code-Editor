@@ -7,6 +7,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.static('public'));
+app.use('/assets', express.static('assets'));
 app.use(express.json());
 
 app.post('/run', (req, res) => {

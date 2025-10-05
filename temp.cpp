@@ -7,6 +7,6 @@ int main() {
     cin >> tt;
     while (tt--) {
         int n; cin >> n;
-        cout << n << endl;
+        cout << n;
     }
 }
